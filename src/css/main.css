@@ -2,6 +2,10 @@ html{
     font-family: 'Exo', sans-serif;
     background: #1a2c43;
 }
+html,body{
+    padding: 0;
+    margin: 0;
+}
 
 :root{
     --primary: #31cbfe;
@@ -21,7 +25,6 @@ html{
     text-transform: uppercase;
     font-weight: bold;
 }
-
 .full-width{
     width: 100%;
 }
@@ -58,6 +61,9 @@ html{
 .bg-muted{
     color: rgb(139, 154, 161);
     background: rgb(236, 248, 254);
+}
+.text-uppercase{
+    text-transform: uppercase
 }
 .flex-grow{
     flex-grow: 1;
@@ -113,3 +119,4 @@ html{
 .text-smaller{
     font-size: 0.6em;
 }
+
