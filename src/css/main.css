@@ -1,0 +1,115 @@
+html{
+    font-family: 'Exo', sans-serif;
+    background: #1a2c43;
+}
+
+:root{
+    --primary: #31cbfe;
+    --success: green;
+    --danger: #e63b6f;
+    /* --danger: #f56c6c; */
+    --muted: #a5abb4;
+    --ebony: #3e4652;
+}
+.font23px{
+    font-size: 1.43em;
+}
+.button{
+    padding: 10px 15px;
+    border-radius: 100px;
+    border: 3px solid #31cbfe;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.full-width{
+    width: 100%;
+}
+.full-height{
+    height: 100%;
+}
+.fullscreen{
+    width: 100%;
+    height: 100%;    
+}
+.text-ebony{
+    color: var(--ebony);
+}
+.text-danger{
+    color: var(--danger);
+}
+.text-muted{
+    color: var(--muted);
+}
+.text-success{
+    color: var(--success);
+}
+.text-primary{
+    color: var(--primary);
+}
+.bg-danger{
+    color:#fff;
+    background: var(--danger);
+}
+.bg-primary{
+    color:#fff;
+    background: var(--primary);
+}
+.bg-muted{
+    color: rgb(139, 154, 161);
+    background: rgb(236, 248, 254);
+}
+.flex-grow{
+    flex-grow: 1;
+}
+
+.flex{
+    display: flex;
+    flex-flow: row; 
+}
+.column{
+    display: flex;
+    flex-flow: column;
+}
+.justify-center{
+    justify-content: center;
+}
+.justify-start{
+    justify-content: flex-start;
+}
+.justify-end{
+    justify-content: flex-end;
+}
+.justify-space-between{
+    justify-content: space-between;
+}
+.alignitems-space-between{
+    align-items: space-between;
+}
+.alignitems-center{
+   align-items: center;
+}
+.alignitems-start{
+    align-items: flex-start;
+}
+.alignitems-end{
+    align-items: flex-end;
+}
+.text-bigger{
+    font-size: 1.7em;
+}
+.text-big{
+    font-size: 1.5em;
+}
+.text-bold{
+    font-weight: bold;
+}
+.text-normal{
+    font-weight: normal;
+}
+.text-small{
+    font-size: 0.8em;
+}
+.text-smaller{
+    font-size: 0.6em;
+}
