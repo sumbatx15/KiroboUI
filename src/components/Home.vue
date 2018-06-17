@@ -93,7 +93,9 @@
       <div class="token-presale-container">
         <div class="token-sale-title">Private sale and Pre Sale only</div>
         <div class="token-sale-desc">The smart contracts for Kirobo’s SmartWallet will be triggered by Operators, who will receive a reward of KBO Tokens in exchange for their services.</div>
-        <div class="token-sale-timer"></div>
+        <div class="token-sale-timer">
+          <CountDown :date="new Date(2018,11,11)" />
+        </div>
         <div class="token-presale-details">
           <div class="token-presale-detail-item" v-for="i in 6">
             <span class="text-bold">Pre Sale Start</span>
@@ -105,10 +107,24 @@
       </div>
       <div class="token-distribution-container">
         <span class="token-sale-title">Distribution Of Tokens</span>
+        <PieChart />
       </div>
       <div class="token-budget-container">
-        <div class="token-sale-title">	Budget Breakdown</div>
-
+        <div class="token-sale-title"> Budget Breakdown</div>
+        <div class="token-budget-details">
+          <span>
+            <span class="token-budget-dot" style="color:#142843">●</span> 50% R & D</span>
+          <span>
+            <span class="token-budget-dot" style="color:#34576a">●</span> 15% Business Development</span>
+          <span>
+            <span class="token-budget-dot" style="color:#53778a">●</span> 15% PR & Marketing</span>
+          <span>
+            <span class="token-budget-dot" style="color:#47cbff">●</span> 10% Legal & Accounting</span>
+          <span>
+            <span class="token-budget-dot" style="color:#87c8e2">●</span> 5% Administrative</span>
+          <span>
+            <span class="token-budget-dot" style="color:#1f2e71">●</span> 5% Various expenses</span>
+        </div>
         <img :src="require('@/assets/waves.png')" alt="" class="token-budget-img">
       </div>
     </div>
@@ -138,9 +154,13 @@
 
 <script>
 import TeamMember from "./TeamMember";
+import CountDown from "./CircleCountDown/CountDown";
+import PieChart from "./PieChart";
 export default {
   components: {
-    TeamMember
+    TeamMember,
+    CountDown,
+    PieChart
   }
 };
 </script>
@@ -163,13 +183,44 @@ export default {
   background: #fff;
   box-sizing: border-box;
   overflow: hidden;
-  height: 1300px;
+  padding-bottom: 600px;
   width: 100%;
+}
+.token-budget-details {
+  margin-top: 117px;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  /* align-self: flex-start; */
+  width: 70%;
+  font-size: 23px;
+  line-height: 50px;
+}
+.token-budget-dot {
+  font-size: 27px;
 }
 .token-budget-img {
   position: absolute;
-  top: 0;
+  bottom: 0;
   width: 100%;
+}
+.token-sale-timer {
+  margin-top: 91px;
+  max-width: 100%;
+  overflow: hidden;
+}
+.timer-container {
+  display: flex;
+}
+.timer-container > *:not(:last-child) {
+  margin-right: 84px;
+}
+.timer-number {
+  font-size: 55px;
+  line-height: 0.6em;
+}
+.timer-number-text {
+  font-size: 27px;
 }
 .token-presale-container {
   padding: 2em;
@@ -498,7 +549,17 @@ export default {
   .token-sale-desc {
     width: auto;
   }
-  .token-budget-img{
+
+  /* .token-sale-timer {
+    transform: scale(0.5);
+  } */
+  .timer-container > *:not(:last-child) {
+    margin-right: 10px;
+  }
+  .timer-container {
+    transform: scale(0.5);
+  }
+  .token-budget-img {
     width: auto;
     height: 50%;
   }
