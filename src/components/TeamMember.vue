@@ -9,7 +9,9 @@
                 <span class="team-member-name">{{name.split(' ')[1]}}</span>
                 <span class="team-member-job">{{job}}</span>
             </div>
+            <a :href="linkedin" target="_blank">
             <img class="linkedin-icon" :src="require('@/assets/linkedin.png')" width="40" alt="">
+            </a>
         </div>
         <div class="team-member-desc">
             <span>{{desc}}</span>
@@ -19,7 +21,7 @@
 
 <script>
 export default {
-  props: ["name", "img", "job", "desc"]
+  props: ["name", "img", "job", "desc", 'linkedin']
 };
 </script>
 
@@ -71,5 +73,8 @@ export default {
 }
 .team-member-job {
   font-size: 20px;
+}
+.linkedin-icon:hover{
+  transform: scale(1.1);
 }
 </style>

@@ -21,14 +21,14 @@ export default {
 
       switch (index) {
         case 0:
-          translateY = 25;
+          translateY = 23;
           break;
         case 1:
           translateY = 0;
 
           break;
         case 2:
-          translateY = -25;
+          translateY = -22;
           break;
       }
       return {
