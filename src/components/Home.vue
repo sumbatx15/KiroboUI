@@ -129,6 +129,18 @@
       </div>
     </div>
     <div class="road-map-container">
+      <span class="token-sale-title">Road map</span>
+      <div class="road-map-carousel">
+        <YearsSlider :years="['2017','2018','2019']" selectedYear="2018" />
+        <carousel :perPage="4">
+          <slide v-for="i in 5" >
+            <div class="carousel-slide-content">
+              <span class="carousel-slide-title">May</span>
+              <span>Release of the software v.2.0</span>
+            </div>
+          </slide>
+        </carousel>
+      </div>
     </div>
     <div class="team-container">
       <span class="team-title">Team</span>
@@ -153,19 +165,51 @@
 </template>
 
 <script>
+import { Carousel, Slide } from "vue-carousel";
 import TeamMember from "./TeamMember";
+import YearsSlider from "./YearsSlider";
 import CountDown from "./CircleCountDown/CountDown";
 import PieChart from "./PieChart";
 export default {
   components: {
     TeamMember,
     CountDown,
-    PieChart
+    PieChart,
+    YearsSlider,
+    Carousel,
+    Slide
   }
 };
 </script>
 
 <style>
+.road-map-container {
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  align-items: center;
+  background: #fff;
+  box-sizing: border-box;
+}
+.road-map-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.carousel-slide-content {
+  font-size: 23px;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  text-align: left;
+  align-items: flex-start;
+  max-width: 180px;
+}
+.carousel-slide-title{
+  font-weight: bold;
+color: #47cbff;
+}
 .token-sale-container {
   display: flex;
   flex-flow: column;
@@ -196,6 +240,12 @@ export default {
   font-size: 23px;
   line-height: 50px;
 }
+.token-distribution-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
 .token-budget-dot {
   font-size: 27px;
 }
@@ -206,8 +256,8 @@ export default {
 }
 .token-sale-timer {
   margin-top: 91px;
-  max-width: 100%;
   overflow: hidden;
+  flex: 1 1;
 }
 .timer-container {
   display: flex;
@@ -229,6 +279,7 @@ export default {
   text-align: center;
   align-items: center;
   margin-bottom: 310px;
+  overflow: hidden;
 }
 .token-sale-title {
   font-size: 5em;
@@ -314,7 +365,7 @@ export default {
 .use-case-container {
   box-sizing: border-box;
   border-top-left-radius: 1em;
-  border-top-left-radius: 1em;
+  border-top-right-radius: 1em;
   padding: 1em;
   background: #fff;
 }
@@ -549,19 +600,22 @@ export default {
   .token-sale-desc {
     width: auto;
   }
-
-  /* .token-sale-timer {
+  .token-sale-timer {
     transform: scale(0.5);
-  } */
+  }
   .timer-container > *:not(:last-child) {
     margin-right: 10px;
-  }
-  .timer-container {
-    transform: scale(0.5);
   }
   .token-budget-img {
     width: auto;
     height: 50%;
+  }
+  .road-map-carousel{
+    flex-flow: column;
+  }
+  .team-members-list{
+    flex-flow: column;
+    align-items: center;
   }
 }
 </style>
