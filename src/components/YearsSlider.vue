@@ -17,20 +17,24 @@ export default {
   computed: {
     styleYears() {
       let index = this.years.indexOf(this.selectedYear);
+      console.log('index', index);
       let translateY;
 
       switch (index) {
         case 0:
-          translateY = 23;
+          translateY = 32;
           break;
         case 1:
-          translateY = 0;
-
+          translateY = 13;
           break;
         case 2:
-          translateY = -22;
+          translateY = -11;
+          break;
+        case 3:
+          translateY = -30;
           break;
       }
+        console.log('translateY', translateY);
       return {
         transform: `translateY(${translateY}%)`
       };
@@ -51,6 +55,8 @@ export default {
 <style>
 .years-slider-container {
   width: 300px;
+  min-width:300px ;
+  min-height:300px ;
   height: 300px;
   display: flex;
   flex-flow: column;

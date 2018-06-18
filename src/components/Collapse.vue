@@ -107,37 +107,37 @@ export default {
   width: 90%;
 }
 .el-tabs__item {
-  color: white;
-  font-size: 1.2em;
+  color: white !important;
+  font-size: 1.2em !important;
 }
 .el-collapse-item__header,
 .el-collapse-item__wrap {
-  background: transparent;
-  color: white;
+  background: transparent !important;
+  color: white !important;
 }
 .el-collapse {
-  border: none;
+  border: none !important;
 }
 .el-collapse-item {
-  color: white;
+  color: white !important;
 }
 .el-collapse-item__header {
-  height: auto;
-  font-weight: bold;
-  font-size: 16px;
-  border: none;
+  height: auto !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+  border: none !important;
 }
 .el-collapse-item__content {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 .el-collapse-item__header.is-active {
-  color: #31cbfe;
+  color: #31cbfe !important;
 }
 .el-tabs__item.is-active {
-  color: #31cbfe;
+  color: #31cbfe !important;
 }
 .el-tabs__active-bar {
-  background-color: #31cbfe;
+  background-color: #31cbfe !important;
 }
 </style>

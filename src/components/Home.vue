@@ -164,12 +164,108 @@
     <div class="road-map-container">
       <span class="token-sale-title">Road map</span>
       <div class="road-map-carousel">
-        <YearsSlider :years="['2017','2018','2019']" selectedYear="2018" />
-        <carousel :perPage="perPage" :style="styleMaxWidth">
-          <slide v-for="i in 5">
+        <YearsSlider @yearChanged="yearChanged" :years="['2016','2017','2018','2019']" :selectedYear="selectedYear" />
+        <carousel v-if="selectedYear=='2016'" :perPage="perPage" :style="styleMaxWidth" >
+          <slide >
+            <div class="carousel-slide-content">
+              <span class="carousel-slide-title">December</span>
+              <span>Formulation of the concept</span>
+            </div>
+          </slide>
+        </carousel>
+        <carousel v-if="selectedYear=='2017'" :perPage="perPage" :style="styleMaxWidth" >
+          <slide>
+            <div class="carousel-slide-content">
+              <span class="carousel-slide-title">February</span>
+              <span>Team formation</span>
+            </div>
+          </slide>
+          <slide>
+            <div class="carousel-slide-content">
+              <span class="carousel-slide-title">March</span>
+              <span>Development begins</span>
+            </div>
+          </slide>
+          <slide>
+            <div class="carousel-slide-content">
+              <span class="carousel-slide-title">November</span>
+              <span>First patent submission</span>
+            </div>
+          </slide>
+          <slide>
+            <div class="carousel-slide-content">
+              <span class="carousel-slide-title">December</span>
+              <span>Submit two additional patents</span>
+            </div>
+          </slide>
+        </carousel>
+        <carousel v-if="selectedYear=='2018'" :perPage="perPage" :style="styleMaxWidth" >
+          <slide>
+            <div class="carousel-slide-content">
+              <span class="carousel-slide-title">February</span>
+              <span>Seed raised $2M</span>
+            </div>
+          </slide>
+          <slide>
             <div class="carousel-slide-content">
               <span class="carousel-slide-title">May</span>
-              <span>Release of the software v.2.0</span>
+              <span>Private-Sale Starts</span>
+            </div>
+          </slide>
+          <slide>
+            <div class="carousel-slide-content">
+              <span class="carousel-slide-title">July</span>
+              <span>Expansion of the POC Will allow users to experiment on Rinkeby Test Network</span>
+            </div>
+          </slide>
+          <slide>
+            <div class="carousel-slide-content">
+              <span class="carousel-slide-title">August</span>
+              <span>POC revealed</span>
+            </div>
+          </slide>
+          <slide>
+            <div class="carousel-slide-content">
+              <span class="carousel-slide-title">September</span>
+              <span>Private Sale ends and pre-Sale starts</span>
+            </div>
+          </slide>
+          <slide>
+            <div class="carousel-slide-content">
+              <span class="carousel-slide-title">December </span>
+              <span>Alpha release of backup wallets, trusts, inheritance features, and robbery </span>
+            </div>
+          </slide>
+        </carousel>
+        <carousel v-if="selectedYear=='2019'" :perPage="perPage" :style="styleMaxWidth">
+          <slide>
+            <div class="carousel-slide-content">
+              <span class="carousel-slide-title">March</span>
+              <span>Beta release of backup trusts, inheritance features, and robbery protection</span>
+            </div>
+          </slide>
+          <slide>
+            <div class="carousel-slide-content">
+              <span class="carousel-slide-title">May</span>
+              <span>Production version of backup trusts, inheritance features, a nd robbery </span>
+            </div>
+          </slide>
+          <slide>
+            <div class="carousel-slide-content">
+              <span class="carousel-slide-title">July</span>
+              <span>POC revealed for the corporate platform</span>
+            </div>
+          </slide>
+          <slide>
+            <div class="carousel-slide-content">
+              <span class="carousel-slide-title">September</span>
+              <span>Alpha revealed of corporate platform</span>
+            </div>
+          </slide>
+          <slide>
+            <div class="carousel-slide-content">
+              <span class="carousel-slide-title">November</span>
+              <span>Beta revealed of corporate platform and development of SAP add-on</span>
             </div>
           </slide>
         </carousel>
@@ -222,7 +318,8 @@ export default {
   data() {
     return {
       centerDialogVisible: true,
-      maxWidth: this.getWidth()
+      maxWidth: this.getWidth(),
+      selectedYear: "2016"
     };
   },
   mounted() {
@@ -233,13 +330,16 @@ export default {
     });
   },
   methods: {
+    yearChanged(year) {
+      this.selectedYear = year;
+    },
     getWidth() {
       return window.innerWidth;
     }
   },
   computed: {
     perPage() {
-      return parseInt(this.maxWidth / 300) || 1;
+      return parseInt(this.maxWidth / 400) || 1;
     },
     styleMaxWidth() {
       return {
@@ -313,7 +413,7 @@ export default {
   background: url("../assets/faq-bg.png");
   background-size: contain;
 }
-.faq-title{
+.faq-title {
   font-size: 4em;
   color: white;
   margin-top: 50px;
@@ -336,6 +436,10 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  width: 60%;
+}
+.VueCarousel{
+  flex:  1 1 !important;
 }
 .carousel-slide-content {
   padding-left: 20px;
@@ -345,7 +449,7 @@ export default {
   justify-content: flex-start;
   text-align: left;
   align-items: flex-start;
-  max-width: 180px;
+  max-width: 300px;
   min-width: 0px;
 }
 .carousel-slide-title {
@@ -698,6 +802,12 @@ export default {
     line-height: 2em;
     font-size: 16px;
     margin-bottom: 7em;
+  }
+  .road-map-container{
+    padding-top: 40px;
+  }
+  .years-slider-container{
+    margin-bottom: 30px;
   }
   .button-white-paper {
     transform: scale(0.7);
