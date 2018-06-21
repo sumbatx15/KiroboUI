@@ -12,7 +12,7 @@ export default {
     // ["percentage", "color", "textColor", "width"]
   props: {
       width:{
-          default: 200
+          default: 233
       },
       color:{
           default : '#31cafd'

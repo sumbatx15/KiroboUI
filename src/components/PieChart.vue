@@ -1,7 +1,7 @@
 <template>
   <div class="chart-container">
     <div class="public">
-      <span class="text-bold" style="color:#76dfef; font-size: 2vw">40%</span>
+      <span class="text-bold" style="color:#31318e; font-size: 2vw">40%</span>
       <span style="color:#142843">Public</span>
     </div>
     <div class="adv-con">
@@ -9,12 +9,12 @@
       <span style="color:#142843">Advisors & Consultants</span>
     </div>
     <div class="kirobo">
-      <span class="text-bold" style="color:#76dfef;font-size: 2vw">15%</span>
+      <span class="text-bold" style="color:#0f62b0;font-size: 2vw">15%</span>
       <span style="color:#142843">Kirobo’s Equity</span>
     </div>
     <div class="founder">
-      <span class="text-bold" style="color:#76dfef;font-size: 2vw">25%</span>
-      <span style="color:#142843">Founder’s $ Team</span>
+      <span class="text-bold" style="color:#009abc;font-size: 2vw">25%</span>
+      <span style="color:#142843">Founder’s & Team</span>
     </div>
     <div ref="chart" :class="className" :style="{height:height,width:width}"></div>
   </div>
@@ -60,12 +60,12 @@ export default {
     if (this.autoResize) {
       this.__resizeHanlder = debounce(() => {
         if (this.chart) {
-          console.log('this.chart', this.chart);
+          console.log("this.chart", this.chart);
           this.chart.resize();
         }
       }, 0);
       window.addEventListener("resize", this.__resizeHanlder);
-      console.log('this.__resizeHanlder', this.__resizeHanlder);
+      console.log("this.__resizeHanlder", this.__resizeHanlder);
     }
   },
   beforeDestroy() {
@@ -84,17 +84,6 @@ export default {
       deep: true,
       handler(val) {
         this.setOptions(val);
-      }
-    },
-    mainDrawer: {
-      deep: true,
-      handler() {
-        this.__resizeHanlder();
-      }
-    },
-    minimized: {
-      handler() {
-        this.__resizeHanlder();
       }
     }
   },
@@ -143,7 +132,7 @@ export default {
               { value: 40, name: "直接访问" },
               { value: 15, name: "邮件营销" },
               { value: 25, name: "联盟广告" },
-              { value: 25, name: "视频广告" }
+              { value: 20, name: "视频广告" }
             ]
           }
         ]
